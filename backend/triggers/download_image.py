@@ -11,7 +11,7 @@ from azure.storage.blob import (
     BlobSasPermissions
 )
 
-from function_app import app
+from app_instance import app
 
 
 @app.route(

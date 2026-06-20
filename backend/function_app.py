@@ -1,6 +1,5 @@
-import azure.functions as func
+from app_instance import app
 
-app = func.FunctionApp()
 
 # Import all trigger files so decorators are registered
 

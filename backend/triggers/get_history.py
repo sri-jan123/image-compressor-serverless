@@ -6,7 +6,7 @@ import azure.functions as func
 
 from azure.cosmos import CosmosClient
 
-from function_app import app
+from app_instance import app
 
 
 @app.route(

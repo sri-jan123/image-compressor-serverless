@@ -15,7 +15,7 @@ from azure.storage.blob import (
     BlobServiceClient
 )
 
-from function_app import app
+from app_instance import app
 
 
 @app.blob_trigger(
