@@ -9,6 +9,8 @@ const ImageUploader = () => {
   const [processing, setProcessing] = useState(false);
   const [result, setResult] = useState(null);
 
+  const BASE_URL = import.meta.env.VITE_API_URL;
+
   const handleImageChange = (e) => {
 
     const file = e.target.files[0];
@@ -39,7 +41,7 @@ const ImageUploader = () => {
       try {
 
         const response = await axios.get(
-          `http://localhost:7071/api/getImageStatus?fileName=${fileName}`
+          `${BASE_URL}/getimagestatus?fileName=${fileName}`
         );
 
         if (response.data.length > 0) {
@@ -71,7 +73,7 @@ const ImageUploader = () => {
       setUploading(true);
 
       const response = await axios.post(
-        "http://localhost:7071/api/uploadImage",
+        `${BASE_URL}/uploadimage`,
         selectedImage.file,
         {
           headers: {
@@ -102,7 +104,7 @@ const ImageUploader = () => {
     try {
 
       const response = await axios.get(
-        `http://localhost:7071/api/downloadImage?fileName=${fileName}`
+        `${BASE_URL}/downloadImage?fileName=${fileName}`
       );
 
       window.open(response.data.downloadUrl, "_blank");

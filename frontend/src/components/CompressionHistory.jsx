@@ -18,12 +18,13 @@ useEffect(() => {
 
 }, []);
 
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const fetchHistory = async () => {
 
     try {
 
       const response = await axios.get(
-        "http://localhost:7071/api/getHistory"
+        `${BASE_URL}/gethistory`
       );
 
       setHistory(response.data);
@@ -44,7 +45,7 @@ useEffect(() => {
     try {
 
       const response = await axios.get(
-        `http://localhost:7071/api/downloadImage?fileName=${fileName}`
+        `${BASE_URL}/downloadimage?fileName=${fileName}`
       );
 
       window.open(
